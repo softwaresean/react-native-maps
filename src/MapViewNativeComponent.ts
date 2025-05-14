@@ -9,7 +9,7 @@ export type MapViewNativeComponentType = HostComponent<NativeProps>;
 interface NativeCommands {
   animateToRegion: (
     viewRef: NonNullable<
-      React.RefObject<MapViewNativeComponentType>['current']
+      React.RefObject<MapViewNativeComponentType | null>['current']
     >,
     region: Region,
     duration: number,
@@ -17,14 +17,14 @@ interface NativeCommands {
 
   setCamera: (
     viewRef: NonNullable<
-      React.RefObject<MapViewNativeComponentType>['current']
+      React.RefObject<MapViewNativeComponentType | null>['current']
     >,
     camera: Partial<Camera>,
   ) => void;
 
   animateCamera: (
     viewRef: NonNullable<
-      React.RefObject<MapViewNativeComponentType>['current']
+      React.RefObject<MapViewNativeComponentType | null>['current']
     >,
     camera: Partial<Camera>,
     duration: number,
@@ -32,7 +32,7 @@ interface NativeCommands {
 
   fitToElements: (
     viewRef: NonNullable<
-      React.RefObject<MapViewNativeComponentType>['current']
+      React.RefObject<MapViewNativeComponentType | null>['current']
     >,
     edgePadding: EdgePadding,
     animated: boolean,
@@ -40,7 +40,7 @@ interface NativeCommands {
 
   fitToSuppliedMarkers: (
     viewRef: NonNullable<
-      React.RefObject<MapViewNativeComponentType>['current']
+      React.RefObject<MapViewNativeComponentType | null>['current']
     >,
     markers: string[],
     edgePadding: EdgePadding,
@@ -49,7 +49,7 @@ interface NativeCommands {
 
   fitToCoordinates: (
     viewRef: NonNullable<
-      React.RefObject<MapViewNativeComponentType>['current']
+      React.RefObject<MapViewNativeComponentType | null>['current']
     >,
     coordinates: LatLng[],
     edgePadding: EdgePadding,
@@ -58,7 +58,7 @@ interface NativeCommands {
 
   setMapBoundaries: (
     viewRef: NonNullable<
-      React.RefObject<MapViewNativeComponentType>['current']
+      React.RefObject<MapViewNativeComponentType | null>['current']
     >,
     northEast: LatLng,
     southWest: LatLng,
@@ -66,7 +66,7 @@ interface NativeCommands {
 
   setIndoorActiveLevelIndex: (
     viewRef: NonNullable<
-      React.RefObject<MapViewNativeComponentType>['current']
+      React.RefObject<MapViewNativeComponentType | null>['current']
     >,
     activeLevelIndex: number,
   ) => void;

@@ -42,10 +42,13 @@ export interface FabricMapHandle {
   setIndoorActiveLevelIndex: (activeLevelIndex: number) => void;
 }
 
-const createFabricMap = (ViewComponent: React.ComponentType, Commands: any) => {
+const createFabricMap = <Props extends object>(
+  ViewComponent: React.ComponentType<Props>,
+  Commands: any,
+) => {
   return forwardRef<FabricMapHandle | null, FabricMapViewProps>(
     (props, ref) => {
-      const fabricRef = useRef<React.ElementRef<typeof ViewComponent>>(null);
+      const fabricRef = useRef<any>(null);
 
       useImperativeHandle(ref, () => ({
         async getMarkersFrames(onlyVisible: boolean) {
